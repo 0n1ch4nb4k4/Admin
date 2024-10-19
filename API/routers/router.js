@@ -54,7 +54,4 @@ router.post('/FormAddProduct/alert',upload.single('image_product'), async (req,r
         });
 });
 
-
-
-
 module.exports = router;

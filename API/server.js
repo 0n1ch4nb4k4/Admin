@@ -8,7 +8,6 @@ const app = express();
 app.use(cors()); 
 app.use(express.json());
 
-
 const url = 'mongodb+srv://Nhom07:Nhom07VAA@group07.i8yw5.mongodb.net/technology?retryWrites=true&w=majority&appName=Group07';
 const dbName = 'technology';
 
@@ -28,7 +27,6 @@ const connectDB = async () => {
   }
 };
 
-
 //get all products
 app.get('/products', async (req, res) => {
   try {
@@ -42,11 +40,17 @@ app.get('/products', async (req, res) => {
 });
 
 
-// su dung router
-app.use('/products', productRouter);
-
-
-
+//get category
+app.get('/categories', async (req, res) => {
+  try {
+    const category = db.collection('category');
+    const categories = await category.find().toArray();
+    res.json(categories);
+  } catch (error) {
+    console.error('Error fetching categories:', error);
+    res.status(500).json({ error: 'Something went wrong' });
+  }
+});
 
 // Start the server and connect to MongoDB
 const startServer = async () => {

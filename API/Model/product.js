@@ -11,12 +11,11 @@ const productSchema = new mongoose.Schema({
     image_product: String,
 });
 
-// const CategorySchema = new mongoose.Schema({
-//     category_id: Number,
-//     name_category: String,
-// });
-
+const CategorySchema = new mongoose.Schema({
+    category_id: Number,
+    name_category: String,
+});
 let Product = mongoose.model('Product', productSchema, 'product');
-// let Category = mongoose.model('Category', CategorySchema, 'category');
+let Category = mongoose.model('Category', productSchema, 'category');
 
-module.exports = Product;
+module.exports = {Product,Category};

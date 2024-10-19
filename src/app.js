@@ -27,7 +27,6 @@ function App() {
           <Routes>
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/products" element={<Products/>} />
-
             <Route path="/products/FormAddProduct" element={<FormAddProduct/>} />
           </Routes>
         </Content>
